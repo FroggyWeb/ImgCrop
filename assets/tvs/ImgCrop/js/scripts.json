@@ -1,0 +1,10 @@
+{
+    "CropJs": {
+      "version":"1.6.1",
+      "src":"assets/tvs/ImgCrop/js/cropper.min.js"
+    },
+    "ImgCropTV" : {
+      "version":"1.0.0",
+      "src":"assets/tvs/ImgCrop/js/imgcrop.js"
+    }
+}

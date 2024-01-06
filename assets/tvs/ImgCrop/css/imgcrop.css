@@ -1,0 +1,43 @@
+.cropper__wrap {
+    max-width: 400px;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.cropper__body {
+    border: 1px solid #ddd;
+}
+
+.cropper__body img {
+    width: 100%;
+}
+
+.imgcrop-action {
+    display: grid;
+    align-items: start;
+    gap: 10px;
+}
+
+.imgcrop-action .imgcrop-btn {
+    width: 42px;
+    height: 42px;
+    padding: 7px;
+    border: none;
+    appearance: none;
+    border-radius: 50%;
+    box-shadow: 1px 1px rgba(0,0,0, .25);
+    background-color: #d1d9d1;
+    color: #435447;
+    transition: background-color .3s;
+}
+
+.imgcrop-action .imgcrop-btn:hover {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.imgcrop-btn svg {
+    fill: currentColor;
+}
