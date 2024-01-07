@@ -27,8 +27,8 @@
         {
             "label": "Формат файла для сохранения",
             "type": "text",
-            "value": "image/jpeg",
-            "desc": "image/jpeg или image/png"
+            "value": "jpg",
+            "desc": "jpg или png"
         }
     ]
 }

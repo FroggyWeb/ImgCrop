@@ -16,10 +16,9 @@ if(!isset($_SESSION['mgrValidated'])){
 if (!empty($_FILES['file']) && !$_FILES['file']['error'] && is_uploaded_file($_FILES['file']['tmp_name'])) {
     $path = pathinfo($_POST['path']);
     $fileCrop = $_FILES['file']['tmp_name'];
-    $pathRes = $path['dirname'].'/'.$path['filename'].'_crop'.'.'.$path['extension'];
+    $pathRes = $path['dirname'].'/'.$path['filename'].'_crop'.'.'.$_POST['ext'];
     move_uploaded_file($fileCrop, MODX_BASE_PATH.'/'.$pathRes);
 
     MODX_BASE_PATH;
     echo json_encode( $pathRes );
 }
-

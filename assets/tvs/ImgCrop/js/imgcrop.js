@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", function () {
         let img = el.querySelector(".img-crop");
         let input = el.querySelector(".cropper__input");
         const aspectRatio = input.dataset.aspectratio ?? "free";
-        const format = input.dataset.format ?? "free";
+        const format = "image/" + input.dataset.format ?? "image/jpeg";
         const bgcolor = input.dataset.bgcolor ?? "#000";
         input.addEventListener("change", () => {
             img.src = "/" + input.value;
@@ -39,9 +39,12 @@ window.addEventListener("DOMContentLoaded", function () {
             }
             if (e.target.closest(".imgcrop-save") && cropper) {
                 let formData = new FormData();
-                let canvas = cropper.getCroppedCanvas({
-                    fillColor: bgcolor,
-                });
+                let canvas;
+                let setting = {};
+                if (input.dataset.format !== "png") {
+                    setting.fillColor = bgcolor;
+                }
+                canvas = cropper.getCroppedCanvas(setting);
                 canvas.toBlob(
                     function (blob) {
                         formData.append("file", blob);
@@ -49,6 +52,7 @@ window.addEventListener("DOMContentLoaded", function () {
                             "path",
                             input.value.replace("_crop", "")
                         );
+                        formData.append("ext", input.dataset.format);
                         fetch("/assets/tvs/ImgCrop/ajax.php", {
                             method: "POST",
                             body: formData,

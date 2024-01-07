@@ -27,7 +27,7 @@ class ImgCropController
         $data['value'] = $this->row['value'];
         $data['aspectratio'] = $this->modx->parseProperties($this->row['properties'])['aspectratio'];
         $data['bgcolor'] = $this->modx->parseProperties($this->row['properties'])['bgcolor'] ?? '#000';
-        $data['format'] = $this->modx->parseProperties($this->row['properties'])['format'] ?? '#000';
+        $data['format'] = $this->modx->parseProperties($this->row['properties'])['format'] ?? 'jpg';
         return $data;
     }
     public function loadAssets($file,$ph = array()) {
